@@ -1,0 +1,58 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+.counter{
+
+text-align: center;
+margin: 0% auto;
+margin-top: 10%;
+margin-bottom: 2%;
+background-color: rgb(243, 235, 246);
+padding: 45px;
+border-radius: 100px;
+width: 13%;
+
+
+}
+
+.btn-div{
+display: flex;
+justify-content: center;
+}
+
+.Addtwo ,.reset{
+padding: 20px;
+margin-right: 20px;
+border-radius: 30px;
+border: none;
+background-color:rgb(162, 99, 224);
+font-weight: bolder;
+color: aliceblue;
+cursor: pointer;
+
+}
+
+.num{
+width: 30px;
+padding: 10px;
+border-radius: 10px;
+font-weight: bolder;
+
+}
+
+.reset{
+background-color:rgb(171, 137, 205);
+
+}
+
+.Addtwo:hover,.reset:hover{
+background-color: blueviolet;
+
+
+}
+
+.restform{
+text-align: center;
+margin-top: 1%;
+}
