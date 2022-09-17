@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&family=Rubik&display=swap" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+  <title>Document</title>
+<style> 
+
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+  <h2 class="aa_h2">Users Table</h2>
+<table>
+ 
+ <thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+
+  {% for user in users %}
+<tr>
+<td>{{user.id}}</td>
+<td>{{user.first_name}} {{user.last_name}}</td>
+<td>{{user.email_addres}}</td>
+<td>{{user.age}}</td>
+
+</tr>
+{% endfor %}
+
+
+</tbody>
+</table>
+<hr>
+<h2 class="aa_h2">Add a User</h2>
+
+<form action="/add" method="post" class="submission-form">
+<label>First Name<label> <input class="inpt" type="text" name="first_name"  required>
+<label>Last Name</label> <input class="inpt" type="text" name="last_name" required>
+<label>Email</label> <input class="inpt" type="email" name="email" required>
+<label>Age</label> <input class="inpt" type="text" name="age" required>
+{% csrf_token %}
+<input type="submit" class="submit"  >
+
+</form>
+
+</body>
+</html>
