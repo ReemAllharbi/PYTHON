@@ -1,0 +1,58 @@
+{% extends 'bace.html' %}
+
+
+
+
+{% block content %}
+<div class="conriner">
+    <div class="cont">
+        <h1>Add an Author</h1>
+        <form action="/add_author" method="post" id="sectionForm" >
+            <div class="box">
+            <label>First Name:</label>
+            <input class="inp" name="first_name" type="text" required >
+        </div>
+        <div class="box">
+            <label>Last Name:</label>
+            <input class="inp" name="last_name" type="text" required >
+        </div>
+        <div class="box">
+            <label>Notes:</label>
+            <textarea class="inp textarea" name="notes" type="text"  ></textarea>
+        </div>
+            {% csrf_token %}
+            <input class="submit" type="submit" value="Add Author" >
+        </form>
+     
+        </div>
+        
+
+    <div class="cont">
+        <h1>Author's Table</h1>
+        <table class="styled-table">
+            <thead>
+        
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in authors_table %}
+                <tr>
+                    <td>{{author.id}}</td>
+                    <td>{{author.first_name}} {{author.last_name}}</td>
+                    <td ><a class="view" href="/authors/{{author.id}}">View</a></td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+     
+        </div>
+
+    </div>
+
+{% endblock %}
+

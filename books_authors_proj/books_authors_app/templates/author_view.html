@@ -1,0 +1,44 @@
+{% extends 'bace.html' %}
+
+{% block content %}
+
+    <div class="cont-view" >
+<h1 class="h1-view">{{selected_author.first_name}} {{selected_author.last_name}}</h1>
+<div class="box2">
+
+<h3 class="head">ID:</h3>
+ <p>{{selected_author.id}}</p>
+</div>
+
+<div class="box2">
+<h3 class="head">Description:</h3>
+<p>&nbsp;&nbsp;&nbsp;{{selected_author.notes}}</p>
+</div>
+
+<h3 class="ead">Books:</h3>
+{% for book in books %}
+<li>{{ book.title }} </li>
+{% endfor %}
+
+
+<form action="/books/{{selected_author.id}}" method="post">
+    <select class="select" name="books_s" required >
+        <option value="">-select a Book-</option>
+        {% for book in non_assoc_books %}
+        <option value="{{book.id}}">{{ book.title }}</option>
+      {% endfor %}
+    </select>
+    {% csrf_token %}
+<input class="submit-view" type="submit" value="Add">  
+</form>
+
+
+    <form action="/authors">
+        {% csrf_token %}
+        <input class="submit" type="submit" value="Go Back">  
+    </form>
+
+
+</div>
+{% endblock %}
+
