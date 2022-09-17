@@ -1,0 +1,79 @@
+{% extends 'bace.html' %}
+
+
+{% block head %} 
+<title>Login & Registration</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand">CodingDojo Wall</a>
+  <a class="navbar-brand">Welcome, {{user.firstname}}!</a> 
+    <button class="btn btn-secondary" type="button"><a style="color:#e3f2fd; text-decoration: none;" href="/logout">Log off</a></button>
+</nav>
+{% if messages %}
+<ul>    
+  {% for message in messages %}    
+  <li class="messagesinfo" {% if message.tags %} class="{{ message.tags }}"{% endif %}>* {{ message }}</li>    
+{% endfor %}
+</ul>
+{% endif %}
+<div class="container">
+  <ul>
+<form action="/wall/mssg" method="post">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post a message</label>
+    <textarea class="form-control" name="mssg" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary"> Submit </button>
+</form>
+
+{% for mssg in mssgs %}
+
+{% if mssg.user_id.id == user.id %}
+<b>{{mssg.user_id.firstname}} {{mssg.user_id.lastname}} -{{mssg.created_at}}</b> <a class="del-msg" style="color:brown ;" href="/delete/{{mssg.id}}">Delete Message</a>
+<br>
+{{mssg.message}}
+<br>
+{% else %}
+<b>{{mssg.user_id.firstname}} {{mssg.user_id.lastname}} -{{mssg.created_at}}</b>
+<br>
+{{mssg.message}}
+<br>
+{% endif %}
+<ul>
+
+{% for cmnt in mssg.comment_on_message.all %}
+
+<b>{{ cmnt.user_id.firstname}} {{ cmnt.user_id.lastname}} -{{cmnt.created_at}} </b>
+<br>
+{{cmnt.comment}}
+<br>
+{% endfor %}
+
+<form action="/wall/cmts" method="post">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post a comment</label>
+    <textarea class="form-control" name="comnt" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <input type="hidden" name="message_id" value="{{mssg.id}}" >
+  </div>
+  {% csrf_token %}
+  <button type="submit" class="btn btn-success"> Submit </button>
+</form>
+<br>
+</ul>
+{% endfor %}
+</ul>
+</div>
+
+
+
+
+
+  
+{% endblock %}
+

@@ -1,0 +1,63 @@
+.btn-secondary{
+
+  margin-right: 10px;
+}
+.navbar-brand{
+  margin-left: 10px;
+}
+
+button{
+  margin-top: 5px;
+}
+
+.messagesinfo{
+
+  color: #886904;
+  display: flex;
+  justify-content: left;
+  margin: 0 auto;
+  list-style-type: none;
+  background-color:#fff3cd;
+  border-radius: 10px;
+  width: 35%;
+  padding: 15px;
+  margin-top: 1%;
+  
+  }
+  .messages{
+    color: brown;
+    display: flex;
+    justify-content: left;
+    margin: 0 auto;
+    list-style-type: none;
+    background-color:rgb(241, 189, 189);
+    border-radius: 10px;
+    width: 35%;
+    padding: 15px;
+    margin-top: 1%;
+  }    
+
+  h1 {
+    text-align: center;
+  }
+
+
+  .del-msg{
+
+    color: darkred;
+
+  }
+  .container{
+    margin: 0% auto;
+    display: flex;
+    
+    }
+    
+    
+    
+    .cont {
+      padding: 50px;
+      margin: 0% auto;
+      width: 80%;
+    }
+    
