@@ -1,0 +1,58 @@
+{% extends 'bace.html' %}
+
+{% block head %}
+<title>Form Page</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="cont">
+<h4>Submitted Info</h4>
+<br><br>
+<table>
+
+    <tr>
+    <th>Name:</th>
+    <td>{{name}}</td>
+</tr>
+
+<tr>
+<th>Dojo Location:</th> 
+<td>{{location}}</td> 
+</tr> 
+
+<tr>          
+<th>Favorite Language:</th>
+<td>{{language}}!!!</td>
+</tr>  
+
+<tr>          
+    <th>Gender:</th>
+    <td>{{gender}}</td>
+</tr>  
+
+<tr>  
+    <th>I have experience in:</th>
+    <td>
+    {% for exp in experience %}
+  {% if forloop.last %}
+  {{ exp }}
+  {% else %}
+  {{ exp }}-
+  {% endif %}
+     {% endfor %}</td>
+    </tr> 
+
+<tr>  
+<th>Comment:</th>
+<td>{{coment}}</td>
+</tr>  
+
+</table>
+<form action="/index">
+<input class="submit" type="submit" value="Go Back"  >
+</form>
+
+    </div>
+{% endblock %}
+

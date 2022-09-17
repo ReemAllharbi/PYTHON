@@ -1,0 +1,80 @@
+{% extends 'bace.html' %}
+
+{% block head %}
+<title>Dojo Survey Index</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="cont">
+<form action="/form" method="post" id="sectionForm" >
+    <div class="box">
+    <label>Your Name:</label>
+    <input class="inp" name="name" type="text" required >
+</div>
+<div class="box">
+<label>Dojo Location:</label>
+<select class="inp" name="loc" required >
+    <option value=""></option>
+    <option value="San Joes">San Joes</option>
+    <option value="LA">LA</option>
+  </select>
+  </div>
+  <div class="box">
+  <label for="lang" >Favorite Language:</label>
+  <select class="inp" name="lang"  required>
+    <option value=""></option>
+      <option value="python"  >python</option>
+      <option value="C#">C#</option>
+      <option value="JS">JS</option>
+      <option value="PHP">PHP</option>
+    </select>
+    </div>
+    <div class="box">
+    <label for="gender">Gender:</label>
+
+    <div class="radio">
+<div class="sub-div">   
+     <input  type="radio" name="gender" value="male" required>
+    <label for="male">Male</label>
+</div>
+<div class="sub-div">   
+    <input type="radio" name="gender" value="female"  >
+    <label for="female">Female</label>
+    </div>
+</div>
+    </div>
+    <div class="box">
+
+    <label for="experience" >I have experience in:</label>
+    <div class="sub-div">  
+<input type="checkbox" name="experience" value="python"  >
+<label for="python">Python</label>
+</div>
+<div class="sub-div">  
+<input type="checkbox" name="experience" value="js" >
+<label for="js">JS</label>
+</div>
+<div class="sub-div">  
+<input type="checkbox" name="experience" value="c#" >
+<label for="c#">C#</label>
+</div>
+
+
+
+</div>
+
+
+    <p>Comment (optianal):</p>
+    <textarea class="textarea"  name="comment"></textarea>
+
+    {% csrf_token %}
+    <input type="hidden" value="HIULGYUFTYGLIYUFGUYLF" >
+    <input class="submit" type="submit" value="Button" >
+</form>
+<script src="/static/js/script.js"></script>
+</div>
+
+
+{% endblock %}
+
