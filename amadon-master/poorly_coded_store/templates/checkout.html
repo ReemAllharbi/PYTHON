@@ -1,0 +1,15 @@
+{% extends 'bace.html' %}
+{% block head %} 
+<title>Amadon Checkout</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="cont">
+    <h3>Thank you for your business!</h3>
+    <p>We charged your credit card for ${{total_charge}}</p>
+    <p>You have ordered #{{quantity}} items so far and spent $${{total_charge_spend}} with Amadon.com!</p>
+    <a class="back" href="/amadon">←Go back</a>
+    
+    {% endblock %}
+</div>
