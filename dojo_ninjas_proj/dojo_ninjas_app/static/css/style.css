@@ -1,0 +1,124 @@
+* {
+  font-family: "Rubik", sans-serif;
+}
+body {
+  margin: 0% auto;
+}
+
+.conriner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  margin: 0% auto;
+  flex-wrap: nowrap;
+
+
+  
+}
+
+.cont {
+  margin: 0% auto;
+  padding: 50px;
+  margin: 0% auto;
+  padding-bottom: 50px;
+  height: max-content;
+
+}
+
+.inp {
+  border: 2px solid black;
+  width: 60%;
+  height: 32px;
+  margin: 5px;
+padding-left: 10px;
+padding-bottom:0px ;
+
+}
+
+.submit {
+  color: white;
+  width: 75px;
+  height: 30px;
+  border-color: black;
+  box-shadow: 4px 3px black;
+  background-color: #76a5af;
+  float: right;
+  cursor: pointer;
+  border: 2px solid black;
+  font-size: small;
+}
+.submit:hover {
+  background-color: darkcyan;
+}
+.info {
+
+  text-align: left;
+  
+}
+
+.sec{
+
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+margin: 0% auto;
+
+}
+
+.del {
+  background-color: rgb(208, 119, 119);
+  box-shadow: 4px 3px black;
+  border: 2px solid black;
+  text-decoration: none;
+  color: aliceblue;
+  padding: 4px;
+  font-size: small;
+  cursor: pointer;
+
+
+
+}
+
+.del:hover {
+  background-color: rgb(196, 82, 82);
+}
+.dojo-form{
+    display: inline;
+    vertical-align: middle;
+    margin-left: 10px;
+
+}
+
+hr{
+width: 70%;
+margin: 0% auto;
+margin-top: 25px;
+
+  
+}
+
+label{
+width: 40%;
+  margin-right: 0;
+  margin-top: 10px;
+}
+
+.f{
+display: flex;
+justify-content: space-between;
+vertical-align: middle;
+align-items: center;
+
+
+}
+li{margin-top: 0%;}

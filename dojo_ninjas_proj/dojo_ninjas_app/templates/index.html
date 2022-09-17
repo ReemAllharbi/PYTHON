@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <script src="{% static 'js/js.js' %}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&family=Rubik&display=swap" rel="stylesheet">
+    <title>Dojos & Ninjas</title>
+</head>
+<body>
+    <div class="conriner">
+    <div class="cont">
+        <h1>Add a Dojo</h1>
+        <form action="/dojo" method="post" id="sectionForm" >
+            <div class="box">
+            <label>Name:</label>
+            <input class="inp" name="name" type="text" required >
+        </div>
+        <div class="box">
+            <label>City:</label>
+            <input class="inp" name="city" type="text" required >
+        </div>
+        <div class="box">
+            <label>State:</label>
+            <input class="inp" name="state" type="text" required >
+        </div>
+            {% csrf_token %}
+            <input class="submit" type="submit" value="Add Dojo" >
+        </form>
+     
+        </div>
+        
+
+    <div class="cont">
+        <h1>Add a Ninja</h1>
+        <form action="/ninja" method="post" id="sectionForm" >
+            <div class="box">
+            <label>First Name:</label>
+            <input class="inp" name="first_name" type="text" required >
+        </div>
+        <div class="box">
+            <label>Last Name:</label>
+            <input class="inp" name="last_name" type="text" required >
+        </div>
+
+        <div class="box">
+        <label>Dojo:</label>
+        <select class="inp" name="dojo_id" required >
+            <option value="">-select a dojo-</option>
+            {% for dojo in dojos %}
+            <option value="{{dojo.id}}">{{ dojo.name }}</option>
+
+          {% endfor %}
+        </select>
+
+          </div>
+            {% csrf_token %}
+            <input class="submit" type="submit" value="Add Ninja" >
+        </form>
+     
+        </div>
+
+    </div>
+
+    <hr>
+    <div class="sec">
+<div class="info">
+
+<h1>All the Dojos</h1>
+
+
+{% for dojo in dojos %}
+
+<div class="f">
+<h3>Ninjas at the {{ dojo.name }} Dojo </h3>   
+
+    <form action="/delete" method="post" class="dojo-form"  onsubmit="return confirm('Do you sure to delete the Dojo? It will delete all the associated ninjas to this Dojo.');">
+    {% csrf_token %}
+    <input type="text" style="display:none" value="{{dojo.id}}" name="del"  >
+    <input type="submit" class="del"  value="Delete" > 
+    </form>
+   
+</div>
+
+
+{% for ninja in dojo.dojos.all %}
+    <li>  {{ninja.first_name}}  {{ninja.last_name}}  </li>
+
+    {% endfor %}
+
+    {% endfor %}
+
+</div>
+</body>
+
+</html>
