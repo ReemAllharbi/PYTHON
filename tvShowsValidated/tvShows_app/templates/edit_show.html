@@ -1,0 +1,52 @@
+{% extends 'bace.html' %}
+
+{% block head %} 
+<title>Update</title>
+{% endblock %}
+
+
+
+{% block content %}
+<a class="view back" href="/shows/{{selected_show.id}} ">← Go Back</a>
+{% if messages %}
+<ul >    
+  {% for message in messages %}    
+  <li class="messages" {% if message.tags %} class="{{ message.tags }}"{% endif %}>* {{ message }}</li>    
+{% endfor %}
+</ul>
+{% endif %}
+
+<h1>Edit Show {{ selected_show.id }}</h1>
+
+    <div class="cont"> 
+    
+        <form action="/shows/{{selected_show.id}}/edit" method="post" id="sectionForm" >
+ 
+            <label>Title:*</label>
+            <input class="inp" name="title" type="text" value="{{selected_show.title}}" required >
+
+        <div class="box">
+            <label>Network:*</label>
+            <input class="inp" name="network" type="text" value="{{selected_show.network}}" required >
+        
+            <label>Release Date:*</label>
+            <input class="inp" name="release_date" type="date" value="{{selected_show.release_date}}"  required >
+        </div>
+
+            <label>Description:</label>
+            <textarea class="inp textarea" name="description" value="{{selected_show.description}}"></textarea>
+            <input style="display:none;" name="showid" type="text" value="{{selected_show.id}}">
+
+            {% csrf_token %}
+            <input class="submit" type="submit" value="Edit Show" >
+        </form>
+     
+        </div>
+      
+     
+ 
+    </div>
+    <a class="view add" href="/shows">← Go to shows</a>
+
+{% endblock %}
+

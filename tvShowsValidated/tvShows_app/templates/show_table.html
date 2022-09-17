@@ -1,0 +1,58 @@
+{% extends 'bace.html' %}
+
+
+{% block head %} 
+<title>Read (All)</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+<h1>All Shows</h1>
+    <div class="cont">
+  
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Network</th>
+                    <th>Release Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for show in Show %}
+                <tr>
+                    <td>{{ show.id }} </td>
+                    <td>{{ show.title }} </td>
+                    <td>{{ show.network }} </td>
+                    <td>{{ show.release_date }} </td>
+                    <td >
+                        <a class="view" href="/shows/{{show.id}}">View&nbsp;&nbsp; </a>
+                        <a class="view" href="/shows/{{show.id}}/edit">  Edit</a>
+                    
+                        <form action="/delete" method="post" style="display:inline ;" onsubmit="return confirm('Do you sure to delete this show?');">
+                        <input type="text" style="display:none;" name="del" value="{{show.id}}">
+                                    {% csrf_token %}
+                    <input type="submit" class="view" value="Delete" > 
+                    </form>
+                    
+                    </td>
+                </tr>
+              
+                {% endfor %}
+          
+            </tbody>
+        </table>
+
+
+     
+        </div>
+        <a class="view add" href="/shows/new">+ Add a new show</a>
+
+
+{% endblock %}
+

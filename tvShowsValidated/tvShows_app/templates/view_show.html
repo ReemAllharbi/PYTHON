@@ -1,0 +1,53 @@
+{% extends 'bace.html' %}
+{% block head %} 
+<title>Read (One)</title>
+{% endblock %}
+
+{% block content %}
+<a class="view back" href="/shows">← Go Back</a>
+    <div class="cont-view" >
+<h1 class="h1-view">TV SHOW {{ selected_show.id }}</h1>
+
+
+<div class="box2">
+<h3 class="head">Title:</h3>
+<p>&nbsp;&nbsp;&nbsp;{{selected_show.title}}</p>
+</div>
+
+<div class="box2">
+    <h3 class="head">Network:</h3>
+    <p>{{selected_show.network}}</p>
+    </div>
+
+    <div class="box2">
+        <h3 class="head">Release Date:</h3>
+        <p>{{selected_show.release_date}}</p>
+        </div>
+
+    <div class="box2">
+        <h3 class="head">Description:</h3>
+        <p>&nbsp;&nbsp;&nbsp;{{selected_show.description}}</p>
+        </div>
+
+
+        <div class="box2">
+            <h3 class="head">Last updated:</h3>
+            <p>&nbsp;&nbsp;&nbsp;{{selected_show.updated_at}}</p>
+            </div>
+
+<br>
+            <a class="view" href="/shows/{{selected_show.id}}/edit">Edit&nbsp;</a> |  
+            <form action="/delete" method="post" style="display:inline ;" onsubmit="return confirm('Do you sure to delete this show?');">
+            <input type="text" style="display:none;" name="del" value="{{selected_show.id}}">
+                        {% csrf_token %}
+        <input type="submit" class="view" style="font-size:medium ;" value="Delete" > 
+        </form>
+
+
+
+
+
+</div>
+
+{% endblock %}
+

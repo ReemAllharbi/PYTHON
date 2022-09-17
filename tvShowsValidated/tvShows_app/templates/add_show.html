@@ -1,0 +1,53 @@
+{% extends 'bace.html' %}
+
+
+{% block head %} 
+<title>Create</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<a class="view back" href="/shows">← Go Back</a>
+<h1>Add a new Show</h1>
+{% if messages %}
+<ul >    
+  {% for message in messages %}    
+  <li class="messages" {% if message.tags %} class="{{ message.tags }}"{% endif %}>* {{ message }}</li>    
+{% endfor %}
+</ul>
+{% endif %}
+
+    <div class="cont">
+    
+        <form action="/shows/new" method="post" id="sectionForm" >
+ 
+            <label>Title:*</label>
+            <input class="inp" name="title" type="text" required >
+
+        <div class="box">
+            <label>Network:*</label>
+            <input class="inp" name="network" type="text" required >
+        
+            <label>Release Date:*</label>
+            <input class="inp" name="release_date" type="date" required >
+        </div>
+
+            <label>Description:</label>
+            <textarea class="inp textarea" name="description"></textarea>
+
+            {% csrf_token %}
+            <input class="submit" type="submit" value="Add Show" >
+        </form>
+     
+        </div>
+ 
+     
+ 
+    </div>
+
+
+{% endblock %}
+
