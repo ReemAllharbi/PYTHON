@@ -1,0 +1,29 @@
+{% extends 'bace.html' %}
+{% block head %} 
+<title>All Favorate Books</title>
+{% endblock %}
+
+{% block content %}
+
+<a class="out" href="/logout">Log Out</a>
+<h2>Hello, {{user.firstname}}!</h2>
+<hr>
+
+<div class="fav">
+    <h3>Your favorate books:</h3>
+    {% for book in books %}
+
+<h5>{{ book.title }}</h5>
+
+
+
+
+    {% endfor %} 
+
+    
+
+      
+    </div>
+
+    <a class="view back" href="/books">Go Back</a>
+        {% endblock %}

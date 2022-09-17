@@ -1,0 +1,129 @@
+input {
+margin-bottom:20px;
+}
+
+
+h1,h2 {
+  text-align: center;
+}
+
+h3{
+margin-top: 0;
+}
+
+.users{color:rgb(6, 130, 192);}
+
+.div3{
+
+display: flex;
+
+justify-content: center;
+
+}
+.un{
+color: rgb(217, 82, 82);
+
+}
+
+.un:hover{
+  color: rgb(145, 12, 12);
+  
+  }
+.del{
+
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.vb{
+  display: flex;
+}
+.out{
+
+  margin-right: 100px;
+  margin-top: 30px;
+  float: right;
+}
+
+span{
+
+  color:rgb(6, 130, 192);
+}
+
+.fav{
+text-align: center;
+
+}
+
+.messages{
+color: brown;
+display: flex;
+justify-content: left;
+margin: 0 auto;
+list-style-type: none;
+background-color:rgb(241, 189, 189);
+border-radius: 10px;
+width: 35%;
+padding: 15px;
+margin-top: 1%;
+
+}
+.messagess{
+  color: rgb(22, 71, 3);
+  display: flex;
+  justify-content: left;
+  margin: 0 auto;
+  list-style-type: none;
+  background-color:rgb(184, 234, 184);
+  border-radius: 10px;
+  width: 35%;
+  padding: 15px;
+  margin-top: 1%;
+
+}
+
+.messagesinfo{
+
+  color: #886904;
+  display: flex;
+  justify-content: left;
+  margin: 0 auto;
+  list-style-type: none;
+  background-color:#fff3cd;
+  border-radius: 10px;
+  width: 35%;
+  padding: 15px;
+  margin-top: 1%;
+  
+  }
+  
+.button{
+
+  margin-top: 20px;
+}
+.container{
+margin: 0% auto;
+display: flex;
+
+}
+
+
+
+.cont {
+  padding: 50px;
+  margin: 0% auto;
+  width: 80%;
+}
+
+
+.view{
+
+float: right;
+
+}
+
+.back{
+
+  margin-right: 30px;
+}
+
