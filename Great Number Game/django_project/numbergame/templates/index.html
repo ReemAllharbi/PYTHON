@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <title>Great Number Game</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Welcome to the Great Number Game</h1>
+      <h3>I'm thinking of a number between 1 and 100</h3>
+    </div>
+    <h4>Take a guess!</h4>
+
+    <!-- <p> the Great Number: {{ request.session.number }} </p> --> 
+
+    <div class="header">Attempt number: {{ request.session.attempt }} and You have 5 attempt to win ! </div>
+
+
+
+    {% if request.session.userinput == "Too low!" and request.session.attempt < 5 %}
+    <div class="box" style="background-color:rgb(235, 66, 66);">
+      <h1 class="boxh1">{{ request.session.userinput }}!</h1>
+    </div>
+
+
+    {% elif request.session.userinput == "Too high!" and request.session.attempt < 5  %}
+
+    <div class="box" style="background-color:rgb(235, 66, 66);">
+      <h1 class="boxh1">{{ request.session.userinput }}!</h1>
+    </div>
+    {% elif request.session.userinput == request.session.number  %}
+    <div class="box" style="background-color: rgb(119, 245, 147);">
+      <h1 class="boxh1">{{ request.session.number }} was the number!</h1>
+      <a href="/destroy_session"><button class="replay-btn">Play again!</button></a>
+      <style>  
+        #k {display:none;}
+      </style>
+
+    </div>
+
+    {% endif %}
+
+  {% if request.session.attempt == 5 and request.session.number != userans %}
+  <div class="box" style="background-color:rgb(80, 79, 79);">
+    <h1 class="boxh1" style="color:aliceblue;">You lose!</h1>
+    <a href="/destroy_session"><button class="replay-btn">Play again!</button></a>
+  </div>
+<style>  
+  #k {display:none;}
+</style>
+
+
+{% endif %}
+
+<div  id="k" class="form" >
+    <form action="/guess" method="post">
+      <input class="num" type="text" name="num" required value=""/><br>
+      {% csrf_token %}
+      <input class="btn" type="submit" value="Submit" />
+    </form>
+  </div>
+
+
+  </body>
+
+</html>

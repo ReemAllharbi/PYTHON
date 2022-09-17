@@ -1,0 +1,76 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+
+
+.header{
+  margin-top: 6%;
+text-align: center;
+background-color:rgb(181, 219, 218);
+width: 43%;
+margin: 0% auto;
+border-radius: 100px;
+padding: 20px;
+margin-bottom: 20px;
+}
+h4{
+  margin-top: 1%;
+  text-align: center;
+}
+.box{
+text-align: center;
+margin: 0% auto;
+margin-bottom: 2%;
+background-color: rgb(243, 235, 246);
+border: 3px solid black;
+width: 20%;
+height:230px;
+
+}
+
+.boxh1{
+margin-top: 30%;
+text-align: center;
+}
+
+
+.num{
+width: 70px;
+height: 20px;
+border-radius: 10px;
+font-weight: bolder;
+text-align: center;
+margin-bottom: 5px;
+
+
+}
+.btn{
+padding: 10px;
+border-radius: 10px;
+border: none;
+background-color:rgb(22, 130, 136);
+color: aliceblue;
+cursor: pointer;
+
+
+}
+.btn:hover{background-color:lightseagreen ;}
+.replay-btn{
+padding: 10px;
+border-radius: 10px;
+border: none;
+background-color:rgb(22, 130, 136);
+color: aliceblue;
+cursor: pointer;
+
+}
+.replay-btn:hover{
+background-color:lightseagreen;
+}
+
+
+.form{
+text-align: center;
+margin-top: 1%;
+}
